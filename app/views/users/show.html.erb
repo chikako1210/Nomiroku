@@ -1,0 +1,31 @@
+<h3>マイページ</h3>
+
+
+<h4>プロフィール</h4>
+<%= @user.name %><br />
+<%= @user.profile %>
+
+<%= link_to '編集', edit_user_path(@user) %>
+
+<h4>乾杯</h4>
+
+<h4>ぽん図</h4>
+
+
+<h4><%= @user.name %>さんののみ録一覧</h4>
+
+ <% @reviews.each do |review| %>
+
+  <%= link_to review.title, review_path(review.id) %>
+
+  <%= review.prefecture %>
+
+  <%= review.brand %>
+
+  <%= @user.name %>
+
+  <%= review.created_at.strftime('%Y/%m/%d %H:%M') %>
+
+  <%= attachment_image_tag review, :image, :fill, 50, 50, format: 'jpeg' %>
+
+ <% end %>
