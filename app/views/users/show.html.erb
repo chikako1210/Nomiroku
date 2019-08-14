@@ -16,7 +16,7 @@
 
  <% @reviews.each do |review| %>
 
-  <%= link_to review.title, review_path(review.id) %>
+  <%= link_to review.title.truncate(10), review_path(review.id) %>
 
   <%= review.prefecture %>
 
@@ -25,7 +25,5 @@
   <%= @user.name %>
 
   <%= review.created_at.strftime('%Y/%m/%d %H:%M') %>
-
-  <%= attachment_image_tag review, :image, :fill, 50, 50, format: 'jpeg' %>
 
  <% end %>

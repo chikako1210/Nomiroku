@@ -3,7 +3,7 @@ ja:
     models:
       user: "ユーザ-"
       review: ”のみ録"
-      prefecture: "都道府県"
+      like: "乾杯"
     attributes:
       user:
         current_password: "現在のパスワード"
@@ -15,6 +15,11 @@ ja:
         password: "パスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "次回から自動的にログイン"
+      review:
+        brand: "銘柄"
+        prefecture: "産地"
+        title: "タイトル"
+        body: "本文"
     errors:
       models:
         user:
@@ -33,6 +38,25 @@ ja:
               invalid: "は有効でありません。"
               confirmation: "が内容とあっていません。"
             name:
+              blank: "が入力されていません。"
+              too_short: "は%{count}文字以上に設定して下さい。"
+              too_long: "は%{count}文字以下に設定して下さい。"
+              invalid: "は有効でありません。"
+        review:
+          attributes:
+            brand:
+              blank: "が入力されていません。"
+              too_short: "は%{count}文字以上に設定して下さい。"
+              too_long: "は%{count}文字以下に設定して下さい。"
+              invalid: "は有効でありません。"
+            prefecture:
+              blank: "が入力されていません。"
+            title:
+              blank: "が入力されていません。"
+              too_short: "は%{count}文字以上に設定して下さい。"
+              too_long: "は%{count}文字以下に設定して下さい。"
+              invalid: "は有効でありません。"
+            body:
               blank: "が入力されていません。"
               too_short: "は%{count}文字以上に設定して下さい。"
               too_long: "は%{count}文字以下に設定して下さい。"

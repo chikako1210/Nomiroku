@@ -72,6 +72,3 @@ gem 'devise-i18n'
 gem 'devise-i18n-views'
 
 gem 'pry-byebug'
-
-gem "refile", require: "refile/rails", github: 'manfe/refile'
-gem "refile-mini_magick"

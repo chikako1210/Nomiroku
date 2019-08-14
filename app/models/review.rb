@@ -3,8 +3,6 @@ class Review < ApplicationRecord
   belongs_to :user
   has_many :likes, dependent: :delete_all
 
-  attachment :image
-
   enum prefecture: {
     北海道:1, 青森県:2, 岩手県:3, 宮城県:4, 秋田県:5, 山形県:6, 福島県:7,
     茨城県:8, 栃木県:9, 群馬県:10, 埼玉県:11, 千葉県:12, 東京都:13, 神奈川県:14,
@@ -15,4 +13,9 @@ class Review < ApplicationRecord
     徳島県:36, 香川県:37, 愛媛県:38, 高知県:39,
     福岡県:40, 佐賀県:41, 長崎県:42, 熊本県:43, 大分県:44, 宮崎県:45, 鹿児島県:46, 沖縄県:47
   }
+
+  validates :prefecture, presence: true
+  validates :brand, presence: true
+  validates :title, presence: true, length: { minimum: 1, maximum: 30 }
+  validates :body, presence: true
 end

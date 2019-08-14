@@ -7,8 +7,6 @@
 
   <%= @review.body %>
 
-  <%= attachment_image_tag @review, :image, :fill, 100, 100, format: 'jpeg' %>
-
   <%= @user.name %>
 
   <%= @review.created_at.strftime('%Y/%m/%d %H:%M') %>
