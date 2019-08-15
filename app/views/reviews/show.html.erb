@@ -7,9 +7,25 @@
 
   <%= @review.body %>
 
-  <%= @user.name %>
+  <%= link_to @user.name, user_path(@user) %>
 
   <%= @review.created_at.strftime('%Y/%m/%d %H:%M') %>
+
+  <% if @review.liked_by?(current_user) %>
+   <%= link_to review_like_path(@review), method: :delete do %>
+    <%= image_tag '乾杯水.png', size: '25x25', alt: '乾杯画像' %>
+   <% end %>
+    <% if @user.id == current_user.id %>
+     <%= @review.likes.count %>
+    <% end %>乾杯
+   <% else %>
+   <%= link_to review_likes_path(@review), method: :post do %>
+    <%= image_tag '乾杯白.png', size: '25x25', alt: '乾杯画像' %>
+   <% end %>
+    <% if @user.id == current_user.id %>
+     <%= @review.likes.count %>
+    <% end %>乾杯
+  <% end %>
 
 <% if @user.id == current_user.id %>
  <%= link_to '編集', edit_review_path(@review) %>

@@ -3,7 +3,7 @@
 
 <h3>皆ののみ録一覧</h3>
 
- <% @reviews.each do |review| %>
+ <% @reviews.reverse_order.each do |review| %>
 
   <%= link_to review.title.truncate(10), review_path(review.id) %>
 

@@ -23,11 +23,13 @@ end
 
 root 'reviews#top'
 resources :reviews do
-  resources :likes, only: [:index, :create, :destroy]
+  resources :likes, only: [:create, :destroy]
 end
 get 'reviews/search' => 'reviews#search'
 
-resources :users
+resources :users do
+  resources :likes, only: [:index]
+end
 get 'users/:id/check' => 'users#check', as:'check'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

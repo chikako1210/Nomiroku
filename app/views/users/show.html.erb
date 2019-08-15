@@ -5,16 +5,21 @@
 <%= @user.name %><br />
 <%= @user.profile %>
 
+<% if @user.id == current_user.id %>
 <%= link_to '編集', edit_user_path(@user) %>
+<% end %>
 
-<h4>乾杯</h4>
+
+<%= link_to '乾杯', user_likes_path(@user.id) %>
+
+
 
 <h4>ぽん図</h4>
 
 
 <h4><%= @user.name %>さんののみ録一覧</h4>
 
- <% @reviews.each do |review| %>
+ <% @reviews.reverse_order.each do |review| %>
 
   <%= link_to review.title.truncate(10), review_path(review.id) %>
 

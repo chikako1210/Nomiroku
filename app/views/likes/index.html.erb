@@ -1,2 +1,17 @@
-<h1>Likes#index</h1>
-<p>Find me in app/views/likes/index.html.erb</p>
+<h4><%= @user.name%>さんが乾杯したのみ録</h4>
+
+<% @reviews.each do |review| %>
+
+  <%= link_to review.title.truncate(10), review_path(review.id) %>
+
+  <%= review.prefecture %>
+
+  <%= review.brand %>
+
+  <%= review.user.name %>
+
+  <%= review.created_at.strftime('%Y/%m/%d %H:%M') %>
+
+ <% end %>
+
+
