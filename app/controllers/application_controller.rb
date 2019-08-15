@@ -1,13 +1,18 @@
 class ApplicationController < ActionController::Base
 
-
-
 def after_sign_in_path_for(resource)
-  stored_location_for(resource) || root_path
+    stored_location_for(resource) || root_path
 end
 
 def after_sign_out_path_for(resource)
-  root_path
+    root_path
+end
+
+before_action :set_search
+
+def set_search
+    @q = Review.ransack(params[:q])
+    @reviews = @q.result.includes(:user)
 end
 
 before_action :configure_permitted_parameters, if: :devise_controller?

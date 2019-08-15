@@ -23,9 +23,13 @@ end
 
 root 'reviews#top'
 resources :reviews do
-  resources :likes, only: [:create, :destroy]
+ collection do
+    match 'search' => 'reviews#search', via: [:get, :post], as: :search
+  end
 end
-get 'reviews/search' => 'reviews#search'
+
+post   '/like/:review_id' => 'likes#create', as: 'like'
+delete '/like/:review_id' => 'likes#destroy', as: 'unlike'
 
 resources :users do
   resources :likes, only: [:index]

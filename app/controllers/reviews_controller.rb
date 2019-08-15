@@ -6,18 +6,6 @@ before_action :correct_user, only: [:edit]
   def top
   end
 
-  def index
-      @reviews = Review.all.includes(:user)
-  end
-
-  def show
-      @review = Review.find(params[:id])
-      @user = @review.user
-  end
-
-  def search
-  end
-
   def new
       @review = Review.new
   end
@@ -30,6 +18,18 @@ before_action :correct_user, only: [:edit]
       else
          render :new
       end
+  end
+
+  def index
+      @reviews = Review.all.includes(:user)
+  end
+
+  def search
+  end
+
+  def show
+      @review = Review.find(params[:id])
+      @user = @review.user
   end
 
   def edit
@@ -63,5 +63,9 @@ before_action :correct_user, only: [:edit]
 
   def review_params
       params.require(:review).permit(:prefecture, :brand, :title, :image, :body)
+  end
+
+  def search_params
+      params.require(:q).permit(:prefecture_eq, :brand_or_title_or_body_cont)
   end
 end

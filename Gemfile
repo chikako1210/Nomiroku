@@ -74,3 +74,7 @@ gem 'devise-i18n-views'
 gem 'pry-byebug'
 
 gem 'font-awesome-sass', '~> 5.4.1'
+
+gem 'ransack'
+
+gem 'enum_help'

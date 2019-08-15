@@ -17,9 +17,19 @@ class Review < ApplicationRecord
   validates :prefecture, presence: true
   validates :brand, presence: true
   validates :title, presence: true, length: { minimum: 1, maximum: 30 }
-  validates :body, presence: true
+  validates :body, presence: true, length: { maximum: 300 }
 
-  def liked_by?(user)
-      likes.where(user_id: user.id).exists?
+  private
+
+  ransacker :prefecture, formatter: proc { |value|
+    sym = Review.prefectures_i18n.invert[value]
+    if sym.blank?
+      raise "unexpected status accessed: #{value}"
+    else
+      sym
+    end
+  } do |parent|
+    parent.table[:prefecture]
   end
+
 end
