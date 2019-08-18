@@ -1,7 +1,9 @@
 
 <h3>検索結果</h3>
 
- <% @reviews.reverse_order.each do |review| %>
+<%= @reviews.count %>件の検索結果
+
+ <% @reviews.each do |review| %>
 
   <%= link_to review.title.truncate(10), review_path(review.id) %>
 

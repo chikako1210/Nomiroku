@@ -64,8 +64,4 @@ before_action :correct_user, only: [:edit]
   def review_params
       params.require(:review).permit(:prefecture, :brand, :title, :image, :body)
   end
-
-  def search_params
-      params.require(:q).permit(:prefecture_eq, :brand_or_title_or_body_cont)
-  end
 end

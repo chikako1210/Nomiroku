@@ -16,7 +16,11 @@
   <%= render 'reviews/like', review: @review %><br />
 
 
-<% if @user.id == current_user.id %>
+<% if user_signed_in? and @user.id == current_user.id %>
  <%= link_to '編集', edit_review_path(@review) %>
  <%= link_to "削除", review_path(@review), method: :delete, "data-confirm" => "削除してよろしいですか？" %>
+<% end %>
+
+<% if admin_signed_in? %>
+ <%= link_to "削除", admins_review_path(@review), method: :delete, "data-confirm" => "削除してよろしいですか？" %>
 <% end %>

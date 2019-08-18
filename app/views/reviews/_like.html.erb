@@ -1,3 +1,4 @@
+<% if user_signed_in? %>
 <div class="like-link" id="like-link-<%= review.id %>">
  <% if current_user.likes.find_by(review_id: review.id) %>
    <%= link_to unlike_path(review.id), method: :delete, remote: true do %>
@@ -15,3 +16,8 @@
     <% end %>乾杯
   <% end %>
 </div>
+<% end %>
+
+<% if admin_signed_in? %>
+ <%= @review.likes.count %>件の乾杯
+<% end %>

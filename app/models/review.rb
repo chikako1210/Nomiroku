@@ -32,4 +32,9 @@ class Review < ApplicationRecord
     parent.table[:prefecture]
   end
 
+  ransacker :likes_count do
+    query = '(SELECT COUNT(likes.review_id) FROM likes where likes.review_id = reviews.id GROUP BY likes.review_id)'
+    Arel.sql(query)
+  end
+
 end
