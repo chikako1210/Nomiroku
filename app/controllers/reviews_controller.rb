@@ -4,6 +4,7 @@ before_action :authenticate_user!, only: [:new, :edit, :update, :create, :destro
 before_action :correct_user, only: [:edit]
 
   def top
+      @review = Review.pickup
   end
 
   def new

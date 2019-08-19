@@ -1,30 +1,81 @@
-<% if admin_signed_in? %>
-<nav>
-	<ul>
-		<li><%= link_to 'ユーザー一覧', admins_users_path %></li>
-		<li><%= link_to 'ユーザー投稿物一覧', admins_reviews_path %></li>
-		<li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
-	</ul>
-</nav>
+<div class="main-visual">
+    <% if admin_signed_in? %>
+    <nav>
+        <ul>
+            <li>
+                <%= link_to 'ユーザー一覧', admins_users_path %>
+            </li>
+            <li>
+                <%= link_to 'ユーザー投稿物一覧', admins_reviews_path %>
+            </li>
+            <li>
+                <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %>
+            </li>
+        </ul>
+    </nav>
+    <% elsif user_signed_in? %>
+    <nav>
+        <ul>
+            <li>
+                <%= link_to 'のみ録を探す', reviews_path %>
+            </li>
+            <li>
+                <%= link_to 'のみ録を書く', new_review_path %>
+            </li>
+            <li>
+                <%= link_to 'マイページ', user_path(current_user.id) %>
+            </li>
+            <li>
+                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+            </li>
+        </ul>
+    </nav>
+    <% else %>
+    <nav>
+        <ul>
+            <li>
+                <%= link_to 'のみ録を探す', reviews_path %>
+            </li>
+            <li>
+                <%= link_to 'ログイン', new_user_session_path %>
+            </li>
+            <li>
+                <%= link_to '新規登録', new_user_registration_path %>
+            </li>
+        </ul>
+    </nav>
+    <% end %>
+    <div class="logo">ここにロゴをどーん</div>
+</div>
+<div class="top-contents">
+    <div class="about">
+        <h4>のみ録とは？</h4>
+        <p>
+        日本酒のレビュー投稿サイトです。1投稿につき1種類のお酒についてレビューを書くことができます。
+        アカウントを持つことで、レビューを投稿したりお気に入りのレビューに「乾杯！」することができます。また、レビューはお酒の産地ごとにタグ分けされるので、「自分がどこの日本酒をどれくらい飲んだのか？」が「ぽん図」という日本地図でわかるようになります！この「ぽん図」はアカウント登録後、マイページから確認ができます。<br />　アカウントがなくても、レビューを探したり、他のユーザーのぽん図を見たりなど、楽しむことができます。まずは、色んなユーザーのレビューを読んでみるのがおすすめです。</p>
+    </div>
+    <div class="concept">
+        <h4>コンセプト</h4>
+        <p>
+        「日本酒、飲んでみたいけれど種類とかよくわからない...」<br />
+        「いつも同じレパートリーばかり飲んでいるから、開拓しようかな」<br />
+        「地酒は結構飲む方だけど、まだ飲んだことない地域のお酒とかあるかな？」<br />
+         のみ録は、日本酒に馴染みない方も日本酒好きの方も、みんなが楽しめることが第一コンセプトです。
+         誰かおすすめを手当たり次第飲むんでみる、「ぽん図」を全国制覇してみる、運命の一本との出会いを探す、あなたの素敵な日本酒ライフの一助となれば幸いです。</p>
+    </div>
+    <div class="pickup">
+        <h4>ピックアップのみ録</h4>
+        <% @review.each do |review| %>
 
-<% elsif user_signed_in? %>
-<nav>
-	<ul>
-		<li><%= link_to 'のみ録を探す', reviews_path %></li>
-		<li><%= link_to 'マイページ', user_path(current_user.id) %></li>
-		<li><%= link_to 'のみ録を書く', new_review_path %></li>
-		<li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-	</ul>
-</nav>
+          <%= link_to review.title.truncate(10), review_path(review.id) %>
 
-<% else %>
+          <%= review.prefecture %>
 
-<nav>
-	<ul>
-		<li><%= link_to 'のみ録を探す', reviews_path %></li>
-		<li><%= link_to 'ログイン', new_user_session_path %></li>
-		<li><%= link_to '新規登録', new_user_registration_path %></li>
-	</ul>
-</nav>
+          <%= review.brand %>
 
-<% end %>
+          <%= link_to review.user.name, user_path(review.user) %>
+
+          <%= review.created_at.strftime('%Y/%m/%d %H:%M') %>
+        <% end %>
+    </div>
+</div>

@@ -4,9 +4,6 @@ before_action :authenticate_user!, only: [:edit, :update, :check, :destroy]
 before_action :correct_user, only: [:edit, :check]
 
 
-  def index
-  end
-
   def show
       @user = User.find(params[:id])
       @reviews = Review.where(user_id: @user.id)
