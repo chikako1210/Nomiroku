@@ -17,13 +17,13 @@
     <nav>
         <ul>
             <li>
+                <%= link_to 'マイページ', user_path(current_user.id) %>
+            </li>
+            <li>
                 <%= link_to 'のみ録を探す', reviews_path %>
             </li>
             <li>
                 <%= link_to 'のみ録を書く', new_review_path %>
-            </li>
-            <li>
-                <%= link_to 'マイページ', user_path(current_user.id) %>
             </li>
             <li>
                 <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>

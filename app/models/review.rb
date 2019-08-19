@@ -21,7 +21,7 @@ class Review < ApplicationRecord
 
 # 直近一週間でのいいね数が最多記事を一つピックアップする
   def self.pickup
-      Review.find(Like.where(created_at: 1.week.ago.beginning_of_day..Time.zone.now.end_of_day).group(:review_id).order(Arel.sql('count(review_id) desc')).limit(1).pluck(:review_id)
+      Review.find(Like.where(created_at: 1.week.ago.beginning_of_day..Time.zone.now.end_of_day).group(:review_id).order(Arel.sql('count(review_id) desc')).limit(1).pluck(:review_id))
   end
 
   private

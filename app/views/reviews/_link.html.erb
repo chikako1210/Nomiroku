@@ -1,0 +1,48 @@
+<%= link_to 'トップページリンクのロゴをここに貼る', root_path %>
+
+   <% if admin_signed_in? %>
+    <nav>
+        <ul>
+            <li>
+                <%= link_to 'ユーザー一覧', admins_users_path %>
+            </li>
+            <li>
+                <%= link_to 'ユーザー投稿物一覧', admins_reviews_path %>
+            </li>
+            <li>
+                <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %>
+            </li>
+        </ul>
+    </nav>
+    <% elsif user_signed_in? %>
+    <nav>
+        <ul>
+            <li>
+                <%= link_to 'マイページ', user_path(current_user.id) %>
+            </li>
+            <li>
+                <%= link_to 'のみ録を探す', reviews_path %>
+            </li>
+            <li>
+                <%= link_to 'のみ録を書く', new_review_path %>
+            </li>
+            <li>
+                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+            </li>
+        </ul>
+    </nav>
+    <% else %>
+    <nav>
+        <ul>
+            <li>
+                <%= link_to 'のみ録を探す', reviews_path %>
+            </li>
+            <li>
+                <%= link_to 'ログイン', new_user_session_path %>
+            </li>
+            <li>
+                <%= link_to '新規登録', new_user_registration_path %>
+            </li>
+        </ul>
+    </nav>
+    <% end %>

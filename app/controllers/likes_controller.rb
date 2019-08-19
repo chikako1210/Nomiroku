@@ -1,6 +1,6 @@
 class LikesController < ApplicationController
 
-  before_action :set_variables
+  before_action :set_variables, only: [:create, :destroy]
 
   def index
       @user = User.find(params[:user_id])

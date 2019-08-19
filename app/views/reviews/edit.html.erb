@@ -1,3 +1,5 @@
+<%= render 'reviews/link' %>
+
 <h3>のみ録の編集</h3>
 
 <%= form_with model: @review, local: true do |f| %>
@@ -36,3 +38,5 @@
  <%= f.submit '更新' %>
 
 <% end %>
+
+<%= link_to '更新せずに戻る', review_path(@review) %>

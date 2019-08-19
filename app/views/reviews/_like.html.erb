@@ -8,7 +8,7 @@
      <%= review.likes.count %>
     <% end %>乾杯！
    <% else %>
-   <%= link_to like_path(review), method: :post, remote: true do %>
+   <%= link_to like_path(review.id), method: :post, remote: true do %>
     <%= image_tag '乾杯白.png', size: '25x25', alt: '乾杯画像' %>
    <% end %>
     <% if review.user.id == current_user.id %>
@@ -16,8 +16,4 @@
     <% end %>乾杯！
   <% end %>
 </div>
-<% end %>
-
-<% if admin_signed_in? %>
- <%= @review.likes.count %>件の乾杯！
 <% end %>

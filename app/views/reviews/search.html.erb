@@ -1,3 +1,24 @@
+<%= render 'reviews/link' %>
+
+<h3>のみ録を探す</h3>
+
+<p>産地を指定したり、銘柄や「飲みやすい」などのキーワードで検索できます。</p>
+
+ <%= search_form_for @q, url: search_reviews_path, html: { method: :post } do  |f| %>
+
+
+  <%= f.label :prefecture_eq, '地域' %>
+  <%= f.select :prefecture_eq, Review.prefectures.keys.to_a, {include_blank: '指定なし'} %>
+
+  <%= f.label :brand_or_title_or_body, "キーワード" %>
+  <%= f.search_field :brand_or_title_or_body_cont %>
+
+  <%= f.label :sorts, '並び替え' %>
+  <%= f.select :sorts, { '投稿が新しい順': 'id desc', '投稿が古い順': 'id asc', '乾杯の多い順': 'likes_count desc' }, { selected: params[:q][:sorts] }, { onchange: 'this.form.submit()'} %>
+
+  <%= f.submit "検索" %>
+<% end %>
+
 
 <h3>検索結果</h3>
 
