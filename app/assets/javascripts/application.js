@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.rwdImageMaps.min
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
@@ -33,4 +34,9 @@ $(function(){
         input.attr("type", "password");
     }
   });
+});
+
+// クリッカブルマップのレスポンシブ対応
+$(function() {
+    $('img[usemap]').rwdImageMaps();
 });

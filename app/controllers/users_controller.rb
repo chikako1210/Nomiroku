@@ -9,6 +9,11 @@ before_action :correct_user, only: [:edit, :check]
       @reviews = Review.where(user_id: @user.id)
   end
 
+  def index
+      @user = User.find(params[:user_id])
+      @reviews = @user.reviews.where(prefecture: params[:prefecture])
+  end
+
   def edit
       @user = User.find(params[:id])
   end

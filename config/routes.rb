@@ -31,7 +31,8 @@ end
 post   '/like/:review_id' => 'likes#create', as: 'like'
 delete '/like/:review_id' => 'likes#destroy', as: 'unlike'
 
-resources :users do
+resources :users, only: [:show, :edit, :update, :destroy] do
+  get ':prefecture' => 'users#index', as: 'prefecture'
   resources :likes, only: [:index]
 end
 get 'users/:id/check' => 'users#check', as:'check'
