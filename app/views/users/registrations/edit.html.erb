@@ -14,6 +14,7 @@
       <em>(<%= @minimum_password_length %> 文字以上)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
+    <span toggle="password-field" class="glyphicon glyphicon-eye-open toggle-password" aria-hidden="true"></span>
   </div>
 
   <div class="field">

@@ -1,3 +1,90 @@
 // Place all the styles related to the reviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.main-visual {
+  width: 100%;
+  height: 500px;
+}
+
+.main-visual nav {
+  text-align: center;
+  padding-top: 80px;
+  padding-left: 50px;
+}
+
+.main-visual  li {
+  list-style: none;
+  width: 150px;
+  height: 40px;
+  margin: 15px;
+}
+
+.main-visual a {
+  line-height: 40px;
+  color: white;
+}
+
+.main-visual li:nth-child(1) {
+  background-color: #432D32;
+}
+
+.main-visual li:nth-child(2) {
+  background-color: #6DAEA7;
+}
+
+.main-visual li:nth-child(3) {
+  background-color: #ACBFB8;
+}
+
+.main-visual li:nth-child(4) {
+  background-color: #B9B9D1;
+}
+
+.link {
+  text-align: center;
+  padding-top: 80px;
+  padding-left: 25px;
+}
+
+.link li {
+  list-style: none;
+  width: 150px;
+  height: 40px;
+  margin: 15px;
+}
+
+.link a {
+  line-height: 40px;
+  color: white;
+}
+
+.link li:nth-child(1) {
+  background-color: #432D32;
+}
+
+.link li:nth-child(2) {
+  background-color: #6DAEA7;
+}
+
+.link li:nth-child(3) {
+  background-color: #ACBFB8;
+}
+
+.link li:nth-child(4) {
+  background-color: #B9B9D1;
+}
+

@@ -32,8 +32,8 @@ post   '/like/:review_id' => 'likes#create', as: 'like'
 delete '/like/:review_id' => 'likes#destroy', as: 'unlike'
 
 resources :users, only: [:show, :edit, :update, :destroy] do
-  get ':prefecture' => 'users#index', as: 'prefecture'
   resources :likes, only: [:index]
+  get 'review/:prefecture' => 'users#index', as: 'prefecture'
 end
 get 'users/:id/check' => 'users#check', as:'check'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
