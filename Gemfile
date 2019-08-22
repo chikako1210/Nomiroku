@@ -79,5 +79,5 @@ gem 'ransack'
 
 gem 'enum_help'
 
-gem "refile", require: "refile/rails", github: 'manfe/refile'
-gem "refile-mini_magick"
+ gem "refile", require: "refile/rails", github: 'manfe/refile'
+ gem "refile-mini_magick"
