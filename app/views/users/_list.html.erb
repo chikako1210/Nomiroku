@@ -1,0 +1,16 @@
+
+<h4>プロフィール</h4>
+
+<%= user.name %><br />
+<%= user.profile %>
+
+<% if user_signed_in? and user.id == current_user.id %>
+ <%= link_to '編集', edit_user_path(user) %>
+<% end %>
+
+<% if admin_signed_in? %>
+ <%= link_to 'ユーザーを削除', admins_user_path(@user), method: :delete, "data-confirm" => "本当に削除しますか？"%>
+<% end %>
+
+
+<%= link_to '乾杯！', user_likes_path(user.id) %>

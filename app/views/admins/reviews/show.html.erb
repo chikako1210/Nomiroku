@@ -1,0 +1,19 @@
+<%= render 'reviews/link' %>
+
+<h3>投稿物詳細</h3>
+
+  <%= @review.title %>
+
+  <%= @review.prefecture %>
+
+  <%= @review.brand %>
+
+  <%= @review.body %>
+
+  <%= link_to @user.name, user_path(@user) %>
+
+  <%= @review.created_at.strftime('%Y/%m/%d %H:%M') %>
+
+  <%= @review.likes.count %>件の乾杯
+
+  <%= link_to "削除", admins_review_path(@review), method: :delete, "data-confirm" => "削除してよろしいですか？" %>

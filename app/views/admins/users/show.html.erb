@@ -1,0 +1,28 @@
+<%= render 'reviews/link' %>
+
+<h3>ユーザー詳細</h3>
+
+<h4>ユーザー情報</h4>
+
+名前:<%= @user.name %>
+性別:<%= @user.sex %>
+生年月日:<%= @user.birthday %>
+メールアドレス:<%= @user.email %>
+プロフィール文:<%= @user.profile %>
+
+<%= link_to 'ユーザーを削除', admins_user_path(@user), method: :delete, "data-confirm" => "本当に削除しますか？"%>
+
+<h4>投稿物一覧</h4>
+
+<% @reviews.each do |review| %>
+
+<%= link_to review.title.truncate(10), admins_review_path(review.id) %>
+
+  <%= review.prefecture %>
+
+  <%= review.brand %>
+
+  <%= review.created_at.strftime('%Y/%m/%d %H:%M') %>
+
+
+ <% end %>

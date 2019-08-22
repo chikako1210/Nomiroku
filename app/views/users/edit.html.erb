@@ -1,0 +1,46 @@
+<%= render 'reviews/link' %>
+
+<h3>アカウント情報編集</h3>
+
+<%= form_with model: @user, local: true do |f| %>
+
+<% if @user.errors.any? %>
+   <div class="alert alert-warning" role="alert">
+     <h4><%= @user.errors.count %>件のエラーがあります。</h4>
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+   </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name, "名前"%>(15文字以下)<br />
+    <%= f.text_field :name, autofocus: true, placeholder:"name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sex, "性別" %><br />
+    <%= f.radio_button :sex, '男', checked: "checked" %>男
+    <%= f.radio_button :sex, '女' %>女
+    <%= f.radio_button :sex, 'その他' %>その他
+  </div>
+
+  <div class="field">
+    <%= f.label :birthday, "生年月日" %><br />
+    <%= f.date_select :birthday, start_year: 1900, end_year: Time.current.year, default: Date.new(1989, 1, 1), use_month_numbers: true, order: [:year, :month, :day] %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email, "メールアドレス" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "email" %>
+
+  <%= f.submit '更新' %>
+  <% end %>
+
+  <%= link_to '戻る', user_path(@user) %>
+
+  <%= link_to 'パスワード変更', edit_user_registration_path(@user) %>
+
+  <%= link_to '退会はこちら', check_path(@user) %>
