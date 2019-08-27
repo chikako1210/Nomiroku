@@ -1,48 +1,55 @@
-<%= link_to 'トップページリンクのロゴをここに貼る', root_path %>
-
    <% if admin_signed_in? %>
     <nav class="link">
         <ul>
-            <li>
-                <%= link_to 'ユーザー一覧', admins_users_path %>
-            </li>
-            <li>
-                <%= link_to 'ユーザー投稿物一覧', admins_reviews_path %>
-            </li>
-            <li>
-                <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %>
-            </li>
+            <%= link_to root_path do %>
+             <li style="background-color: #DAD9D4;">トップ</li>
+            <% end %>
+            <%= link_to admins_users_path do %>
+             <li style="background-color: #165E83;">ユーザー一覧</li>
+            <% end %>
+            <%= link_to admins_reviews_path do %>
+             <li style="background-color: #6DAEA7;">レビュー一覧</li>
+            <% end %>
+            <%= link_to destroy_admin_session_path, method: :delete do %>
+             <li style="background-color: #B9B9D1;">ログアウト</li>
+            <% end %>
         </ul>
     </nav>
     <% elsif user_signed_in? %>
-    <nav>
+    <nav class="link">
         <ul>
-            <li>
-                <%= link_to 'マイページ', user_path(current_user.id) %>
-            </li>
-            <li>
-                <%= link_to 'のみ録を探す', reviews_path %>
-            </li>
-            <li>
-                <%= link_to 'のみ録を書く', new_review_path %>
-            </li>
-            <li>
-                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-            </li>
+            <%= link_to root_path do %>
+             <li style="background-color: #DAD9D4;">トップ</li>
+            <% end %>
+            <%= link_to user_path(current_user.id) do %>
+             <li style="background-color: #165E83;">マイページ</li>
+            <% end %>
+            <%= link_to reviews_path do %>
+             <li style="background-color: #6DAEA7;">レビューを探す</li>
+            <% end %>
+            <%= link_to new_review_path do %>
+             <li style="background-color: #ACBFB8;">レビューを書く</li>
+            <% end %>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+             <li style="background-color: #B9B9D1;">ログアウト</li>
+            <% end %>
         </ul>
     </nav>
     <% else %>
-    <nav>
+    <nav class="link">
         <ul>
-            <li>
-                <%= link_to 'のみ録を探す', reviews_path %>
-            </li>
-            <li>
-                <%= link_to 'ログイン', new_user_session_path %>
-            </li>
-            <li>
-                <%= link_to '新規登録', new_user_registration_path %>
-            </li>
+            <%= link_to root_path do %>
+             <li style="background-color: #DAD9D4;">トップ</li>
+            <% end %>
+            <%= link_to reviews_path do %>
+             <li style="background-color: #6DAEA7;">レビューを探す</li>
+            <% end %>
+            <%= link_to new_user_session_path do %>
+             <li style="background-color: #9ED1D3;">ログイン</li>
+            <% end %>
+            <%= link_to new_user_registration_path do %>
+             <li style="background-color: #84A2D4;">アカウント登録</li>
+            <% end %>
         </ul>
     </nav>
     <% end %>

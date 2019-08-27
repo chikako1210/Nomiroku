@@ -1,7 +1,14 @@
 <%= render 'reviews/link' %>
 
-<h3>退会確認</h3>
-<p>退会すると、今までの投稿物が全て削除され、復元はできません。<br>よろしいですか？</p>
+<div class="user-delete contents">
 
-<%= link_to '戻る', user_path(@user) %>
-<%= link_to '退会する', user_path(@user), method: :delete %>
+ <h3>退会確認</h3>
+
+ <p>退会すると、今までの投稿物が全て削除され、復元はできません。<br>よろしいですか？</p>
+
+ <div class="delete-link">
+  <%= link_to 'はい', user_path(@user), method: :delete %>
+  <%= link_to 'いいえ', user_path(@user) %>
+ </div>
+
+</div>

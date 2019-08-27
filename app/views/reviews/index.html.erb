@@ -1,6 +1,6 @@
 <%= render 'reviews/link' %>
 
-<h3>のみ録を探す</h3>
+<h3>レビューを探す</h3>
 
 <p>産地を指定したり、銘柄や「飲みやすい」などのキーワードで検索できます。</p>
 
@@ -22,7 +22,7 @@
 
 
 
-<h3>最新ののみ録一覧</h3>
+<h3>最新のレビュー一覧</h3>
 
  <% @reviews.reverse_order.each do |review| %>
 
@@ -31,6 +31,8 @@
   <%= review.prefecture %>
 
   <%= review.brand %>
+
+  <%= attachment_image_tag review, :image, :fill, 50, 50, format: 'jpeg' %>
 
   <%= link_to review.user.name, user_path(review.user) %>
 

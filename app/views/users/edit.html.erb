@@ -1,6 +1,9 @@
 <%= render 'reviews/link' %>
 
+<div class="user-edit contents">
+
 <h3>アカウント情報編集</h3>
+
 
 <%= form_with model: @user, local: true do |f| %>
 
@@ -16,31 +19,34 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name, "名前"%>(15文字以下)<br />
-    <%= f.text_field :name, autofocus: true, placeholder:"name" %>
-  </div>
+     <%= f.text_field :name, autofocus: true, placeholder:"名前(15文字以下)" %>
+    </div><br>
 
-  <div class="field">
-    <%= f.label :sex, "性別" %><br />
-    <%= f.radio_button :sex, '男', checked: "checked" %>男
-    <%= f.radio_button :sex, '女' %>女
-    <%= f.radio_button :sex, 'その他' %>その他
-  </div>
+    <div class="field" style="margin-left: 5px;">
+     <%= f.radio_button :sex, '男', checked: "checked" %><p>男</p>
+     <%= f.radio_button :sex, '女' %><p>女</p>
+     <%= f.radio_button :sex, 'その他' %><p>その他</p>
+    </div><br>
 
-  <div class="field">
-    <%= f.label :birthday, "生年月日" %><br />
-    <%= f.date_select :birthday, start_year: 1900, end_year: Time.current.year, default: Date.new(1989, 1, 1), use_month_numbers: true, order: [:year, :month, :day] %>
-  </div>
+    <div class="field" style="margin-left: -5px;">
+     <%= f.date_select :birthday, start_year: 1900, end_year: Time.current.year, default: Date.new(1989, 1, 1), use_month_numbers: true, order: [:year, :month, :day], date_separator: '/' %><p style="display: inline-block;">生まれ</p>
+    </div><br>
 
-  <div class="field">
-    <%= f.label :email, "メールアドレス" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "email" %>
+    <div class="field">
+     <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス" %>
+    </div><br>
+
+    <div class="field">
+     <%= f.text_area :profile, autofocus: true, placeholder:"プロフィール(50文字以下)" %>
+    </div><br>
 
   <%= f.submit '更新' %>
   <% end %>
 
-  <%= link_to '戻る', user_path(@user) %>
-
-  <%= link_to 'パスワード変更', edit_user_registration_path(@user) %>
+<div class="edit-link">
+  <%= link_to 'パスワード変更', edit_user_registration_path(@user) %><br />
 
   <%= link_to '退会はこちら', check_path(@user) %>
+</div>
+
+</div>

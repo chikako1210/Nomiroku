@@ -1,6 +1,6 @@
 <%= render 'reviews/link' %>
 
-<h3><%= @user.name%>さんが乾杯したのみ録</h3>
+<h3><%= @user.name%>さんが乾杯したレビュー</h3>
 
 <% @reviews.each do |review| %>
 
@@ -9,6 +9,8 @@
   <%= review.prefecture %>
 
   <%= review.brand %>
+
+  <%= attachment_image_tag review, :image, :fill, 50, 50, format: 'jpeg' %>
 
   <%= review.user.name %>
 

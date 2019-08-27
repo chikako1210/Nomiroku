@@ -33,3 +33,39 @@ $(function(){
     }
   });
 });
+
+// マウスオーバー時のレビューをふわっとさせる
+$(function(){
+    $('.review-title').mouseover(function(){
+        $('.review-box').addClass('action');
+    });
+});
+
+// トップテキストのスクロールでフェードイン表示
+$(function(){
+  $('#animation').css('visibility','hidden');
+    $(window).scroll(function(){
+      $('#animation').each(function(){
+       var windowHeight = $(window).height(),
+           topWindow = $(window).scrollTop(),
+           targetPosition = $(this).offset().top;
+       if(topWindow > targetPosition - windowHeight + 300){
+       $(this).addClass("fadeInDown");
+  }
+ });
+});
+});
+
+$(function(){
+  $('#fadein').css('visibility','hidden');
+    $(window).scroll(function(){
+      $('#fadein').each(function(){
+       var windowHeight = $(window).height(),
+           topWindow = $(window).scrollTop(),
+           targetPosition = $(this).offset().top;
+       if(topWindow > targetPosition - windowHeight + 300){
+       $(this).addClass("fadeInDown");
+  }
+ });
+});
+});

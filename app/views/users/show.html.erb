@@ -1,16 +1,24 @@
 <%= render 'reviews/link' %>
 
-<h3><%= @user.name %>さんのホーム</h3>
+<div class="home contents clearfix">
 
-<%= render 'users/list', user: @user %>
+ <h3><%= @user.name %>さんのマイページ</h3>
+
+ <div class="home-top clearfix">
+
+  <div class="profile-box">
+   <%= render 'users/list', user: @user %>
+  </div>
 
 
+<div class="map-box">
+ <h4>のみ図</h4>
 
-<h4>ぽん図</h4>
+ <p>レビューが多い地域ほど色が濃くなります。</p>
 
-<%= image_tag '日本地図(白).png', alt: 'ぽん図画像', usemap: "#ImageMap" %>
+ <%= image_tag '日本地図(白).png', alt: 'ぽん図画像', usemap: "#ImageMap" %>
 
-<map name="ImageMap">
+ <map name="ImageMap">
   <%= link_to user_prefecture_path(user_id: @user.id, prefecture: '北海道') do %>
     <area shape="poly" coords="401,4,548,4,548,97,440,96,439,110,401,110,401,110" alt="北海道" />
   <% end %>
@@ -152,29 +160,40 @@
   <%= link_to user_prefecture_path(user_id: @user.id, prefecture: '沖縄県') do %>
    <area shape="rect" coords="58,469,82,507" alt="沖縄" />
   <% end %>
-</map>
+ </map>
+ </div>
 
+</div>
 
-<h4><%= @user.name %>さんののみ録一覧</h4>
+ <div class="home-under">
 
- <% @reviews.reverse_order.each do |review| %>
+  <h4><%= @user.name %>さんのレビュー一覧</h4>
 
-  <%= link_to review.title.truncate(10), review_path(review.id) %>
+  <% @reviews.reverse_order.each do |review| %>
 
-  <%= review.prefecture %>
+  <div class="review">
 
-  <%= review.brand %>
+    <div>
+      <%= link_to review.title.truncate(8), review_path(review.id) %>
+    </div>
+    <p style="font-size: 15px;">
+      <%= review.prefecture %>
+    </p>
 
-  <%= review.user.name %>
+    <p style="font-size: 17px;">
+      <%= review.brand %>
+    </p>
 
-  <%= review.created_at.strftime('%Y/%m/%d %H:%M') %>
+    <div class="image">
+      <%= attachment_image_tag review, :image, :fill, 150, 100, format: 'jpeg' %>
+    </div>
 
+    <p class="date">
+      <%= review.created_at.strftime('%Y/%m/%d %H:%M') %>
+    </p>
+  </div>
  <% end %>
 
- <%= javascript_include_tag "jquery.rwdImageMaps.min" %>
+ </div>
 
- <script>
-  $(document).ready(function(e) {
-    $('img[usemap]').rwdImageMaps();
-});
- </script>
+</div>

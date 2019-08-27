@@ -1,3 +1,106 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.home h3 {
+  margin-bottom: 50px;
+  text-align: center;
+  border-bottom: double 5px #165E83;
+  padding-bottom: 23px;
+}
+
+.home h4 {
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: bold;
+  background: #165E83;
+  padding: 6px;
+  color: #FFF;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  margin-top: -1px;
+}
+
+.home-top {
+  padding: 0 14.5%;
+  padding-bottom: 50px
+}
+
+.map-box {
+  width: 600px;
+  background-color: #DAD9D4;
+  text-align: center;
+}
+
+.map-box img {
+  margin: 0 auto;
+  padding-bottom: 25px;
+}
+
+.map-box p {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.home-under {
+  padding: 0 15%;
+}
+
+.review-box .date {
+  position: absolute;
+  right: 20px;
+  top: 8%;
+}
+
+.review-title {
+  font-size: 23px;
+}
+
+.review-box {
+  float: left;
+  width: 600px;
+  height: 200px;
+  background-color: white;
+  position: relative;
+  padding: 15px 35px 15px 25px;
+  transition: all 0.3s ease 0s;
+}
+
+.action:hover {
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.25);
+  transform: translateY(-4px);
+}
+
+.review-box a, p {
+  color: black;
+}
+
+.review-box .image {
+  position: absolute;
+  right: 10px;
+  top: 25%;
+}
+
+.user-delete h3 {
+  margin-bottom: 50px;
+  text-align: center;
+  border-bottom: double 5px #9ED1D3;
+  padding-bottom: 23px;
+}
+
+.user-delete p, a {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.user-delete a {
+  color: gray;
+  margin-right: 0 20px;
+}
+
+.delete-link {
+  width: 200px;
+  margin: 0 auto;
+  text-align: center;
+}

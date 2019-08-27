@@ -1,6 +1,8 @@
 <%= render 'reviews/link' %>
 
-<h2>パスワードを再設定希望の方へ</h2>
+<div class="pass-new contents">
+
+<h3>パスワードを再設定希望の方</h3>
 
 <p>以下の欄に登録したメールアドレスをご入力ください。<br>
    パスワード再設定メールをお送りします。</p>
@@ -9,11 +11,12 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス" %>
+  </div><br>
 
-  <div class="actions">
+  <div class="action">
     <%= f.submit "パスワード再設定メールを送信" %>
   </div>
 <% end %>
+
+</div>

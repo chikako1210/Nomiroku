@@ -8,6 +8,8 @@
 
   <%= @review.brand %>
 
+  <%= attachment_image_tag reivew, :image, :fill, 100, 100, format: 'jpeg' %>
+
   <%= @review.body %>
 
   <%= link_to @user.name, user_path(@user) %>

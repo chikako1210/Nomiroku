@@ -1,6 +1,6 @@
 <%= render 'reviews/link' %>
 
-<h3>のみ録の新規投稿</h3>
+<h3>レビューの新規投稿</h3>
 
 <%= form_with model: @review, local: true do |f| %>
 
@@ -23,6 +23,11 @@
  <div class="field">
     <%= f.label :prefecture, "お酒の産地" %>(必須)<br />
     <%= f.select :prefecture, Review.prefectures.keys.to_a, {prompt: '選択してください'} %>
+ </div>
+
+ <div class="field">
+    <%= f.label :image, "画像" %>(最大1枚)<br />
+    <%= f.attachment_field :image, placeholder: "画像を選択" %>
  </div>
 
  <div class="field">

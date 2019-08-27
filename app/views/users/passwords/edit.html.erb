@@ -1,8 +1,10 @@
 <%= render 'reviews/link' %>
 
-<h2>パスワード再設定</h2>
+<div class="pass-new contents">
 
-<p>パスワードを再設定します。<br>
+<h3>パスワード再設定</h3>
+
+<p>パスワードを再設定します。
    新しいパスワードを入力してください。</p>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
@@ -10,20 +12,17 @@
   <%= f.hidden_field :reset_password_token %>
 
   <div class="field">
-    <%= f.label :password, "新しいパスワード" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> 文字以上)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+    <%= f.password_field :password, autofocus: true, autocomplete: "new-password", placeholder: "パスワード(6文字以上)" %>
     <span toggle="password-field" class="glyphicon glyphicon-eye-open toggle-password" aria-hidden="true"></span>
-  </div>
+  </div><br>
 
   <div class="field">
-    <%= f.label :password_confirmation, "新しいパスワード(確認)" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+    <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "パスワードを再度入力してください" %>
+  </div><br>
 
-  <div class="actions">
-    <%= f.submit "パスワード再設定" %>
+  <div class="action">
+    <%= f.submit "パスワード設定" %>
   </div>
 <% end %>
+
+</div>
