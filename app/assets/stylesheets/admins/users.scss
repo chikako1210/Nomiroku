@@ -1,3 +1,14 @@
 // Place all the styles related to the admins/users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.user-index h3 {
+  margin-bottom: 50px;
+  text-align: center;
+  border-bottom: double 5px #44617B;
+  padding-bottom: 23px;
+}
+
+.user-index p {
+	text-align: center;
+}

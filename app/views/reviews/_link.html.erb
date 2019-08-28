@@ -5,13 +5,13 @@
              <li style="background-color: #DAD9D4;">トップ</li>
             <% end %>
             <%= link_to admins_users_path do %>
-             <li style="background-color: #165E83;">ユーザー一覧</li>
+             <li style="background-color: #44617B;">ユーザー一覧</li>
             <% end %>
             <%= link_to admins_reviews_path do %>
-             <li style="background-color: #6DAEA7;">レビュー一覧</li>
+             <li style="background-color: #69C2C7;">レビュー一覧</li>
             <% end %>
             <%= link_to destroy_admin_session_path, method: :delete do %>
-             <li style="background-color: #B9B9D1;">ログアウト</li>
+             <li style="background-color: #D3CFD9;">ログアウト</li>
             <% end %>
         </ul>
     </nav>
@@ -22,16 +22,16 @@
              <li style="background-color: #DAD9D4;">トップ</li>
             <% end %>
             <%= link_to user_path(current_user.id) do %>
-             <li style="background-color: #165E83;">マイページ</li>
+             <li style="background-color: #5C9291;">マイページ</li>
             <% end %>
             <%= link_to reviews_path do %>
-             <li style="background-color: #6DAEA7;">レビューを探す</li>
+             <li style="background-color: #69C2C7;">レビューを探す</li>
             <% end %>
             <%= link_to new_review_path do %>
-             <li style="background-color: #ACBFB8;">レビューを書く</li>
+             <li style="background-color: #44617B;">レビューを書く</li>
             <% end %>
             <%= link_to destroy_user_session_path, method: :delete do %>
-             <li style="background-color: #B9B9D1;">ログアウト</li>
+             <li style="background-color: #D3CFD9;">ログアウト</li>
             <% end %>
         </ul>
     </nav>
@@ -42,13 +42,13 @@
              <li style="background-color: #DAD9D4;">トップ</li>
             <% end %>
             <%= link_to reviews_path do %>
-             <li style="background-color: #6DAEA7;">レビューを探す</li>
+             <li style="background-color: #69C2C7;">レビューを探す</li>
             <% end %>
             <%= link_to new_user_session_path do %>
              <li style="background-color: #9ED1D3;">ログイン</li>
             <% end %>
             <%= link_to new_user_registration_path do %>
-             <li style="background-color: #84A2D4;">アカウント登録</li>
+             <li style="background-color: #BBC8E6;">アカウント登録</li>
             <% end %>
         </ul>
     </nav>

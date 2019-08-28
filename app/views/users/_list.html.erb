@@ -9,12 +9,12 @@
 
 
 
- <p><%= user.name %><br />
+ <p><%= link_to user.name, user_path(user) %></p><br />
  <p><%= user.profile %></p><br />
 
 
  <%= link_to user_likes_path(user.id) do %>
-  <%= image_tag '乾杯青.png', size: '35x35', alt: '乾杯!一覧' %>
+  <%= image_tag '/images/乾杯青.png', size: '35x35', alt: '乾杯!一覧' %>
  <% end %>
 
  <% if admin_signed_in? %>

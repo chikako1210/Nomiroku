@@ -87,7 +87,7 @@
 footer {
   width: 100%;
   height: 500px;
-  background-image :url('origamipattern005.JPG');
+  background-image :url('/images/origamipattern005.JPG');
   position: relative;
 }
 
@@ -118,7 +118,7 @@ footer::after {
   padding-bottom: 100px;
 }
 
-.footer-link p, a {
+.footer-link p, .footer-link a {
   color: white;
   text-align: center;
   position: relative;
@@ -133,7 +133,7 @@ footer::after {
   padding: 20px;
 }
 
-footer form, label {
+footer form, footer label {
   position: relative;
   z-index: 1;
 }
@@ -215,17 +215,20 @@ input[type="search"] {
   font-weight: bold;
   padding: 0.25em 0.5em;
   text-decoration: none;
-  color: white;
-  background: #00A3AF;
   border-radius: 15px;
   transition: .4s;
+}
+
+.footer-search input[type="submit"] {
+  background: #00A3AF;
+  color: white;
 }
 
 .review_search {
   padding: 2% 20%;
 }
 
-.review_search input[type="submit"]:hover {
+.footer-search input[type="submit"]:hover {
   background: white;
   color: #00A3AF;
 }
@@ -377,7 +380,8 @@ input[type=radio] + p {
 
 .back {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 25px;
+  color: gray;
 }
 
 .back a {
@@ -387,7 +391,7 @@ input[type=radio] + p {
 .user-new h3 {
   margin-bottom: 50px;
   text-align: center;
-  border-bottom: double 5px #84A2D4;
+  border-bottom: double 5px #BBC8E6;
   padding-bottom: 23px;
 }
 
@@ -456,19 +460,18 @@ input[type=radio] + p {
 }
 
 .fa-cog:hover {
-  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.25);
   transform: translateY(-0.1875em);
 }
 
 .profile-box {
   width: 300px;
-  border: solid 3px #165E83;
+  border: solid 3px #5C9291;
 
 }
 
 .profile-box .title {
     font-size: 18px;
-    background: #165E83;
+    background: #5C9291;
     padding: 4px;
     color: #FFF;
     font-weight: bold;
@@ -479,6 +482,10 @@ input[type=radio] + p {
 .profile-box p {
   padding: 15px 20px;
   font-size: 18px;
+}
+
+.profile-box a {
+  color: black;
 }
 
 .profile-box img {
@@ -497,4 +504,29 @@ input[type=radio] + p {
 .profile-box, .map-box {
   float: left;
   margin: 2em 2em;
+}
+
+.index-box {
+  width: 500px;
+  height: 200px;
+  float: left;
+  background: #F3F3F3;
+  margin: 25px;
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease 0s;
+}
+
+.index-box:hover {
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.25);
+  transform: translateY(-0.2em);
+}
+
+.index-box a {
+  color: black;
+}
+
+.hold {
+  width: 1100px;
+  margin: 0 auto;
 }

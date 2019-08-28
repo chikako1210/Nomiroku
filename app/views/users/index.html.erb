@@ -1,20 +1,35 @@
 <%= render 'reviews/link' %>
 
+<div class="home contents clearfix">
 
- <% @reviews.reverse_order.each do |review| %>
+ <h3><%= @user.name %>さんの<%= params[:prefecture] %>のレビュー</h3>
 
- <h4><%= @user.name %>さんの<%= review.prefecture %>ののみ録</h4>
+  <p style="text-align: center;"><%= @reviews.count %>件のレビュー</p>
 
-  <%= @reviews.count %>件ののみ録
+  <div class="hold">
 
-  <%= link_to review.title.truncate(10), review_path(review.id) %>
+   <% @reviews.reverse_order.each do |review| %>
 
-  <%= review.prefecture %>
+   <%= link_to review_path(review.id) do %>
 
-  <%= review.brand %>
+   <div class="index-box">
 
-  <%= @user.name %>
+    <p style="font-size: 20px; padding: 15px 25px;"><%= review.title.truncate(10) %></p>
 
-  <%= review.created_at.strftime('%Y/%m/%d %H:%M') %>
+    <p style="padding-left: 25px;"><%= review.prefecture %></p>
 
- <% end %>
+    <p style="padding-left: 25px;"><%= review.brand %></p>
+
+    <div style="float: right; position: absolute; right: 25px; bottom: 50px;"><%= attachment_image_tag review, :image, :fill, 150, 100, format: 'jpeg' %></div>
+
+    <p style="padding-left: 25px; padding-top: 25px;">書いた人：<%= @user.name %></p>
+
+    <p style="float: right; position: absolute; bottom: 15px; right: 25px;"><%= review.created_at.strftime('%Y/%m/%d %H:%M') %></p>
+
+    </div>
+    <% end %>
+   <% end %>
+   <%= paginate @reviews, class: "paginate" %>
+ </div>
+
+</div>

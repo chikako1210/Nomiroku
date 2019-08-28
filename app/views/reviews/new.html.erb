@@ -1,6 +1,10 @@
 <%= render 'reviews/link' %>
 
+<div class="review-new contents">
+
 <h3>レビューの新規投稿</h3>
+
+<div class="review-form">
 
 <%= form_with model: @review, local: true do |f| %>
 
@@ -16,30 +20,36 @@
   <% end %>
 
  <div class="field">
-	<%= f.label :brand, "飲んだお酒の銘柄" %>(必須)<br />
+	<%= f.label :brand, "銘柄（必須）" %><br />
 	<%= f.text_field :brand, autofocus: true, placeholder:"例：純米大吟醸　百四拾　田酒" %>
- </div>
+ </div><br />
 
- <div class="field">
-    <%= f.label :prefecture, "お酒の産地" %>(必須)<br />
+ <div class="pull">
+    <%= f.label :prefecture, "産地（必須）" %><br />
     <%= f.select :prefecture, Review.prefectures.keys.to_a, {prompt: '選択してください'} %>
- </div>
+ </div><br />
 
  <div class="field">
-    <%= f.label :image, "画像" %>(最大1枚)<br />
-    <%= f.attachment_field :image, placeholder: "画像を選択" %>
- </div>
+    <%= f.label :image, "画像（最大1枚）" %><br />
+    <%= f.attachment_field :image %>
+ </div><br />
 
  <div class="field">
-	<%= f.label :title, "タイトル" %>(必須、30文字以下)<br />
-    <%= f.text_field :title, autofocus: true %>
- </div>
+	<%= f.label :title, "タイトル（必須）" %><br />
+    <%= f.text_field :title, autofocus: true, placeholder: "30文字以下" %>
+ </div><br />
 
  <div class="field">
-	<%= f.label :body, "本文" %>(必須、300文字以下)<br />
-	<%= f.text_area :body, autofocus: true %>
- </div>
+	<%= f.label :body, "本文（必須）" %><br />
+	<%= f.text_area :body, autofocus: true, placeholder: "300文字以下" %>
+ </div><br />
 
+<div class="action">
  <%= f.submit '投稿' %>
+</div>
 
 <% end %>
+
+</div>
+
+</div>

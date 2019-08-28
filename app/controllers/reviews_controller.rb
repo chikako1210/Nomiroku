@@ -22,7 +22,7 @@ before_action :correct_user, only: [:edit]
   end
 
   def index
-      @reviews = Review.all.includes(:user)
+      @reviews = Review.includes(:user).page(params[:page]).reverse_order
   end
 
   def search

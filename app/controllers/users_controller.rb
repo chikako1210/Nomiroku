@@ -6,12 +6,12 @@ before_action :correct_user, only: [:edit, :check]
 
   def show
       @user = User.find(params[:id])
-      @reviews = Review.where(user_id: @user.id)
+      @reviews = Review.where(user_id: @user.id).page(params[:page]).reverse_order
   end
 
   def index
       @user = User.find(params[:user_id])
-      @reviews = @user.reviews.where(prefecture: params[:prefecture])
+      @reviews = @user.reviews.where(prefecture: params[:prefecture]).page(params[:page]).reverse_order
   end
 
   def edit

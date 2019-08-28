@@ -1,18 +1,34 @@
 <%= render 'reviews/link' %>
 
-<h3>ユーザー投稿物一覧</h3>
+<div class="admin-index contents">
+
+<h3>レビュー一覧</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>タイトル</th>
+      <th>地域</th>
+      <th>銘柄</th>
+      <th>投稿日</th>
+      <th>投稿者</th>
+    </tr>
+  </thead>
+  <tbody>
 
 <% @reviews.each do |review| %>
+　　<tr>
+  	 <td><%= review.id %></td>
+  	 <td><%= link_to review.title.truncate(10), admins_review_path(review.id) %></td>
+  	 <td><%= review.prefecture %></td>
+  	 <td><%= review.brand %></td>
+  	 <td><%= review.created_at.strftime('%Y/%m/%d %H:%M') %></td>
+  	 <td><%= link_to review.user.name, admins_user_path(review.user) %></td>
+  	</tr>
+    <% end %>
+    <%= paginate @reviews, class: "paginate" %>
+  </tbody>
+</table>
 
-<%= link_to review.title.truncate(10), admins_review_path(review.id) %>
-
-  <%= review.prefecture %>
-
-  <%= review.brand %>
-
-  <%= link_to review.user.name, admins_user_path(review.user) %>
-
-  <%= review.created_at.strftime('%Y/%m/%d %H:%M') %>
-
-
- <% end %>
+</div>

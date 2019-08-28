@@ -4,7 +4,7 @@ class LikesController < ApplicationController
 
   def index
       @user = User.find(params[:user_id])
-      @reviews = Review.includes(:user, :likes).where(likes: {user_id: @user.id}).order("likes.created_at DESC")
+      @reviews = Review.includes(:user, :likes).where(likes: {user_id: @user.id}).order("likes.created_at DESC").page(params[:page])
   end
 
   def create

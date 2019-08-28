@@ -2,18 +2,18 @@
 <div class="like-link" id="like-link-<%= review.id %>">
  <% if current_user.likes.find_by(review_id: review.id) %>
    <%= link_to unlike_path(review.id), method: :delete, remote: true do %>
-    <%= image_tag '乾杯水.png', size: '25x25', alt: '乾杯画像' %>
+    <%= image_tag '/images/乾杯水.png', size: '35x35', alt: '乾杯画像' %>
    <% end %>
     <% if review.user.id == current_user.id %>
-     <%= review.likes.count %>
-    <% end %>乾杯！
+     <p style="font-size: 16px; font-weight: bold; color: gray; display: inline-block;"><%= review.likes.count %>
+    <% end %>乾杯！</p>
    <% else %>
    <%= link_to like_path(review.id), method: :post, remote: true do %>
-    <%= image_tag '乾杯白.png', size: '25x25', alt: '乾杯画像' %>
+    <%= image_tag '/images/乾杯白.png', size: '35x35', alt: '乾杯画像' %>
    <% end %>
     <% if review.user.id == current_user.id %>
-     <%= review.likes.count %>
-    <% end %>乾杯！
+     <p style="font-size: 16px; font-weight: bold; color: gray; display: inline-block;"><%= review.likes.count %>
+    <% end %>乾杯！</p>
   <% end %>
 </div>
 <% end %>
