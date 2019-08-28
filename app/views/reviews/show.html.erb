@@ -29,7 +29,8 @@
 
   <%= render 'reviews/like', review: @review %>
    <% if admin_signed_in? %>
-    <p style="font-size: 18px; float: left;"><%= @review.likes.count %><件の乾杯！</p>
+    <p style="font-size: 18px; float: left; margin: 25px;"><%= @review.likes.count %>件の乾杯！</p>
+    <p style="float: left; margin: 25px;"><%= link_to "レビューを削除", admins_review_path(@review), method: :delete, "data-confirm" => "削除してよろしいですか？" %></p>
    <% end %>
 
 
@@ -40,10 +41,6 @@
    <%= link_to edit_review_path(@review) do %>
     <i class="fas fa-edit"></i>
    <% end %>
- <% end %>
-
- <% if admin_signed_in? %>
-  <%= link_to "削除", admins_review_path(@review), method: :delete, "data-confirm" => "削除してよろしいですか？" %>
  <% end %>
 
 </div>
