@@ -66,6 +66,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 
 group :development do #開発環境のみ
   gem 'letter_opener_web'
+  gem 'bullet'
 end
 
 gem 'devise-i18n'
@@ -83,3 +84,5 @@ gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 
 gem 'kaminari','~> 1.1.1'
+
+gem 'config'

@@ -16,7 +16,7 @@
 
  <p>レビューが多い地域ほど色が濃くなります。</p>
 
- <%= image_tag '日本地図(白).png', alt: 'ぽん図画像', usemap: "#ImageMap" %>
+ <%= image_tag '/images/日本地図(白).png', alt: 'ぽん図画像', usemap: "#ImageMap" %>
 
  <map name="ImageMap">
   <%= link_to user_prefecture_path(user_id: @user.id, prefecture: '北海道') do %>
