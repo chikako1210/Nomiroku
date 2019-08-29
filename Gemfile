@@ -85,4 +85,4 @@ gem "refile-mini_magick"
 
 gem 'kaminari','~> 1.1.1'
 
-gem 'config'
+gem 'dotenv-rails'
