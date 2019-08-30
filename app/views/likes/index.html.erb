@@ -1,35 +1,32 @@
 <%= render 'reviews/link' %>
-
 <div class="likes contents clearfix">
-
-<h3><%= @user.name%>さんが乾杯したレビュー</h3>
-
-<div class="hold">
-
-   <% @reviews.each do |review| %>
-
-   <%= link_to review_path(review.id) do %>
-
-   <div class="index-box">
-
-    <p style="font-size: 20px; padding: 15px 25px;"><%= review.title.truncate(10) %></p>
-
-    <p style="padding-left: 25px;"><%= review.prefecture %></p>
-
-    <p style="padding-left: 25px;"><%= review.brand %></p>
-
-    <div style="float: right; position: absolute; right: 25px; bottom: 50px;"><%= attachment_image_tag review, :image, :fill, 150, 100, format: 'jpeg' %></div>
-
-    <p style="padding-left: 25px; padding-top: 25px;">書いた人：<%= review.user.name %></p>
-
-    <p style="float: right; position: absolute; bottom: 15px; right: 25px;"><%= review.created_at.strftime('%Y/%m/%d %H:%M') %></p>
-
+    <h3>
+        <%= @user.name%>さんが乾杯したレビュー</h3>
+    <div class="hold">
+        <% @reviews.each do |review| %>
+        <%= link_to review_path(review.id) do %>
+        <div class="index-box">
+            <p style="font-size: 20px; padding: 15px 25px;">
+                <%= review.title.truncate(13) %>
+            </p>
+            <p style="padding-left: 25px;">
+                <%= review.prefecture %>
+            </p>
+            <p style="padding-left: 25px;">
+                <%= review.brand %>
+            </p>
+            <div style="float: right; position: absolute; right: 25px; bottom: 50px;">
+                <%= attachment_image_tag review, :image, :fill, 150, 100, format: 'jpeg' %>
+            </div>
+            <p style="padding-left: 25px; padding-top: 25px;">書いた人：
+                <%= review.user.name %>
+            </p>
+            <p style="float: right; position: absolute; bottom: 15px; right: 25px;">
+                <%= review.created_at.strftime('%Y/%m/%d %H:%M') %>
+            </p>
+        </div>
+        <% end %>
+        <% end %>
+        <%= paginate @reviews, class: "paginate" %>
     </div>
-   <% end %>
-   <% end %>
-   <%= paginate @reviews, class: "paginate" %>
-  </div>
-
 </div>
-
-

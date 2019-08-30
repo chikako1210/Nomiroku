@@ -1,28 +1,21 @@
 <%= render 'reviews/link' %>
-
 <div class="admin-login contents">
-
-<h3>管理者ログイン</h3>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス" %>
-  </div><br />
-
-  <div class="field">
-    <%= f.password_field :password, autocomplete: "current-password", placeholder: "パスワード" %>
-  </div><br />
-
-  <% if devise_mapping.rememberable? %>
+    <h3>管理者ログイン</h3>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me , "次回から自動で入力しますか?" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス" %>
     </div><br />
-  <% end %>
-
-  <div class="action">
-    <%= f.submit "ログイン" %>
-  </div>
-<% end %>
-
+    <div class="field">
+        <%= f.password_field :password, autocomplete: "current-password", placeholder: "パスワード" %>
+    </div><br />
+    <% if devise_mapping.rememberable? %>
+    <div class="field">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me , "次回から自動で入力しますか?" %>
+    </div><br />
+    <% end %>
+    <div class="action">
+        <%= f.submit "ログイン" %>
+    </div>
+    <% end %>
 </div>

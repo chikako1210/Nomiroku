@@ -1,65 +1,55 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>のみ録</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.1/css/all.css" integrity="sha384-wxqG4glGB3nlqX0bi23nmgwCSjWIW13BdLUEYC4VIMehfbcro/ATkyDsF/AbIOVe" crossorigin="anonymous">
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
 <body>
-
-  <div class="wrap">
-
-    <% if flash[:notice] %>
-     <p class="alert alert-success" role="alert"><%= flash[:notice] %></p>
-    <% end %>
-    <% if flash[:alert] %>
-     <p class="alert alert-warning" role="alert"><%= flash[:alert] %></p>
-    <% end %>
-
-    <%= yield %>
-
-<footer>
- <div class="footer-search">
- <p>誰かのとっておき、知りたくないですか？<br />
-    地域を指定したり、銘柄や「甘い」などのキーワードで検索ができます。</p>
-
- <%= search_form_for @q, url: search_reviews_path, html: { method: :post } do  |f| %>
-
-  <%= f.search_field :brand_or_title_or_body_cont, placeholder: "キーワードを入力" %>
-
-  <div class="select-box select-1">
-    <%= f.select :prefecture_eq, Review.prefectures.keys.to_a, {include_blank: '地域指定なし'} %>
-  </div>
-
-  <div class="select-box select-1">
-   <%= f.select :sorts, { '投稿が新しい順': 'id desc', '投稿が古い順': 'id asc', '乾杯の多い順': 'likes_count desc' }, { selected: params[:q][:sorts] }, { onchange: 'this.form.submit()'} %>
- </div>
-
-  <%= f.submit "検索" %>
-
- <% end %>
- </div>
- <div class="footer-link">
- <p>日本酒をもっと知りたい、または買って飲んでみたい方へおすすめのサイト</p>
- <nav>
-   <ul>
-     <li><a href="https://www.kuramotokai.com/">地酒蔵元会</a></li>
-     <li><a href="https://www.jizake.com/">佐野屋</a></li>
-     <li><a href="https://saketaku.com/">saketaku</a></li>
-   </ul>
- </nav>
- </div>
-</footer>
-
-</div>
-
-
+    <div class="wrap">
+        <% if flash[:notice] %>
+        <p class="alert alert-success" role="alert">
+            <%= flash[:notice] %>
+        </p>
+        <% end %>
+        <% if flash[:alert] %>
+        <p class="alert alert-warning" role="alert">
+            <%= flash[:alert] %>
+        </p>
+        <% end %>
+        <%= yield %>
+        <footer>
+            <div class="footer-search">
+                <p>誰かのとっておき、知りたくないですか？<br />
+                    地域を指定したり、銘柄や「甘い」などのキーワードで検索ができます。</p>
+                <%= search_form_for @q, url: search_reviews_path, html: { method: :post } do  |f| %>
+                <%= f.search_field :brand_or_title_or_body_cont, placeholder: "キーワードを入力" %>
+                <div class="select-box select-1">
+                    <%= f.select :prefecture_eq, Review.prefectures.keys.to_a, {include_blank: '地域指定なし'} %>
+                </div>
+                <div class="select-box select-1">
+                    <%= f.select :sorts, { '投稿が新しい順': 'id desc', '投稿が古い順': 'id asc', '乾杯の多い順': 'likes_count desc' }, { selected: params[:q][:sorts] }, { onchange: 'this.form.submit()'} %>
+                </div>
+                <%= f.submit "検索" %>
+                <% end %>
+            </div>
+            <div class="footer-link">
+                <p>日本酒をもっと知りたい、または買って飲んでみたい方へおすすめのサイト</p>
+                <nav>
+                    <ul>
+                        <li><a href="https://www.kuramotokai.com/">地酒蔵元会</a></li>
+                        <li><a href="https://www.jizake.com/">佐野屋</a></li>
+                        <li><a href="https://saketaku.com/">saketaku</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </footer>
+    </div>
 </body>
 
 </html>

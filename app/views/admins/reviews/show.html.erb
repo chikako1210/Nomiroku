@@ -1,25 +1,31 @@
 <%= render 'reviews/link' %>
-
 <div class="admin-index contents">
-
-<h3>投稿物詳細</h3>
-
-  <p>タイトル：<%= @review.title %></p>
-
-  <p>産地：<%= @review.prefecture %></p>
-
-  <p>銘柄：<%= @review.brand %></p>
-
-  <p>画像：<%= attachment_image_tag @review, :image, :fill, 400, 300, format: 'jpeg' %></p>
-
-  <p>本文：<%= @review.body %></p>
-
-  <p>投稿者：<%= link_to @user.name, admins_user_path(@user) %></p>
-
-  <p>投稿日：<%= @review.created_at.strftime('%Y/%m/%d %H:%M') %></p>
-
-  <p>乾杯数；<%= @review.likes.count %></p>
-
-  <p><%= link_to "削除", admins_review_path(@review), method: :delete, "data-confirm" => "削除してよろしいですか？" %></p>
-
+    <h3>投稿物詳細</h3>
+    <p>タイトル：
+        <%= @review.title %>
+    </p>
+    <p>産地：
+        <%= @review.prefecture %>
+    </p>
+    <p>銘柄：
+        <%= @review.brand %>
+    </p>
+    <p>画像：
+        <%= attachment_image_tag @review, :image, :fill, 400, 300, format: 'jpeg' %>
+    </p>
+    <p>本文：
+        <%= @review.body %>
+    </p>
+    <p>投稿者：
+        <%= link_to @user.name, admins_user_path(@user) %>
+    </p>
+    <p>投稿日：
+        <%= @review.created_at.strftime('%Y/%m/%d %H:%M') %>
+    </p>
+    <p>乾杯数；
+        <%= @review.likes.count %>
+    </p>
+    <p>
+        <%= link_to "削除", admins_review_path(@review), method: :delete, "data-confirm" => "削除してよろしいですか？" %>
+    </p>
 </div>

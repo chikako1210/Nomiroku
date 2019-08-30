@@ -1,50 +1,46 @@
 <%= render 'reviews/link' %>
-
 <div class="review contents clearfix">
-
-  <h3><%= @user.name %>さんのレビュー</h3>
-
-  <div class="pro-rev clearfix">
-
-  <div class="profile-box">
-   <%= render 'users/list', user: @user %>
-  </div>
-
-
- <div class="review-show">
-
-  <p style="padding: 15px 20px;"><%= @review.created_at.strftime('%Y/%m/%d %H:%M') %></p><br>
-
-  <p style="text-align: center; font-size: 24px; padding: 15px 25px; font-weight: bold;"><%= @review.title %></p>
-
-  <p style=" text-align: center; font-size: 15px; padding-top: 25px; padding-bottom: 10px; padding-left: 25px; padding-right: 15px; border-top: dashed 2px lightgray;"><%= @review.prefecture %></p>
-
-  <p style="text-align: center; font-size: 18px; padding-top: 10px; padding-bottom: 25px; padding-left: 25px;
-  padding-right: 15px; border-bottom: dashed 2px lightgray;"><%= @review.brand %></p>
-
-
-  <p style="font-size: 15px; padding: 25px 25px;"><%= @review.body %></p>
-
-  <div style="text-align: center;"><%= attachment_image_tag @review, :image, :fill, 500, 350, format: 'jpeg' %></div>
-
-  <%= render 'reviews/like', review: @review %>
-   <% if admin_signed_in? %>
-    <p style="font-size: 18px; float: left; margin: 25px;"><%= @review.likes.count %>件の乾杯！</p>
-    <p style="float: left; margin: 25px;"><%= link_to "レビューを削除", admins_review_path(@review), method: :delete, "data-confirm" => "削除してよろしいですか？" %></p>
-   <% end %>
-
-
- <% if user_signed_in? and @user.id == current_user.id %>
-   <%= link_to review_path(@review), method: :delete, "data-confirm" => "削除してよろしいですか？" do %>
-    <i class="fas fa-trash-alt"></i>
-   <% end %>
-   <%= link_to edit_review_path(@review) do %>
-    <i class="fas fa-edit"></i>
-   <% end %>
- <% end %>
-
-</div>
-
-</div>
-
+    <h3>
+        <%= @user.name %>さんのレビュー</h3>
+    <div class="pro-rev clearfix">
+        <div class="profile-box">
+            <%= render 'users/list', user: @user %>
+        </div>
+        <div class="review-show">
+            <p style="padding: 15px 20px;">
+                <%= @review.created_at.strftime('%Y/%m/%d %H:%M') %>
+            </p><br>
+            <p style="text-align: center; font-size: 24px; padding: 15px 25px; font-weight: bold;">
+                <%= @review.title %>
+            </p>
+            <p style=" text-align: center; font-size: 15px; padding-top: 25px; padding-bottom: 10px; padding-left: 25px; padding-right: 15px; border-top: dashed 2px lightgray;">
+                <%= @review.prefecture %>
+            </p>
+            <p style="text-align: center; font-size: 18px; padding-top: 10px; padding-bottom: 25px; padding-left: 25px; padding-right: 15px; border-bottom: dashed 2px lightgray;">
+                <%= @review.brand %>
+            </p>
+            <p style="font-size: 15px; padding: 25px 25px;">
+                <%= @review.body %>
+            </p>
+            <div style="text-align: center;">
+                <%= attachment_image_tag @review, :image, :fill, 500, 350, format: 'jpeg' %>
+            </div>
+            <%= render 'reviews/like', review: @review %>
+            <% if admin_signed_in? %>
+            <p style="font-size: 18px; float: left; margin: 25px;">
+                <%= @review.likes.count %>件の乾杯！</p>
+            <p style="float: left; margin: 25px;">
+                <%= link_to "レビューを削除", admins_review_path(@review), method: :delete, "data-confirm" => "削除してよろしいですか？" %>
+            </p>
+            <% end %>
+            <% if user_signed_in? and @user.id == current_user.id %>
+            <%= link_to review_path(@review), method: :delete, "data-confirm" => "削除してよろしいですか？" do %>
+            <i class="fas fa-trash-alt"></i>
+            <% end %>
+            <%= link_to edit_review_path(@review) do %>
+            <i class="fas fa-edit"></i>
+            <% end %>
+            <% end %>
+        </div>
+    </div>
 </div>

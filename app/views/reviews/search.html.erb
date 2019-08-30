@@ -1,59 +1,46 @@
 <%= render 'reviews/link' %>
-
 <div class="review-index contents clearfix">
-
-<div class="index-search">
-
- <h3>レビューを検索</h3>
-
- <p style="font-size: 16px;">地域を指定したり、銘柄や「飲みやすい」などのキーワードで検索ができます。</p>
-
- <%= search_form_for @q, url: search_reviews_path, html: { method: :post } do  |f| %>
-
-  <%= f.search_field :brand_or_title_or_body_cont, placeholder: "キーワードを入力" %>
-
-  <div class="select-box select-1">
-    <%= f.select :prefecture_eq, Review.prefectures.keys.to_a, {include_blank: '地域指定なし'} %>
-  </div>
-
-  <div class="select-box select-1">
-   <%= f.select :sorts, { '投稿が新しい順': 'id desc', '投稿が古い順': 'id asc', '乾杯の多い順': 'likes_count desc' }, { selected: params[:q][:sorts] }, { onchange: 'this.form.submit()'} %>
- </div>
-
-  <%= f.submit "検索" %>
-
- <% end %>
-
-</div>
-
-
- <p style="font-size: 22px; text-align: center; margin: 50px;">
-  <%= @reviews.count %>件の検索結果
- </p>
-
- <div class="hold">
-
-   <% @reviews.each do |review| %>
-   <%= link_to review_path(review.id) do %>
-
-   <div class="index-box">
-
-    <p style="font-size: 20px; padding: 15px 25px;"><%= review.title.truncate(10) %></p>
-
-    <p style="padding-left: 25px;"><%= review.prefecture %></p>
-
-    <p style="padding-left: 25px;"><%= review.brand %></p>
-
-    <div style="float: right; position: absolute; right: 25px; bottom: 50px;"><%= attachment_image_tag review, :image, :fill, 150, 100, format: 'jpeg' %></div>
-
-    <p style="padding-left: 25px; padding-top: 25px;">書いた人：<%= review.user.name %></p>
-
-    <p style="float: right; position: absolute; bottom: 15px; right: 25px;"><%= review.created_at.strftime('%Y/%m/%d %H:%M') %></p>
-
+    <div class="index-search">
+        <h3>レビューを検索</h3>
+        <p style="font-size: 16px;">地域を指定したり、銘柄や「飲みやすい」などのキーワードで検索ができます。</p>
+        <%= search_form_for @q, url: search_reviews_path, html: { method: :post } do  |f| %>
+        <%= f.search_field :brand_or_title_or_body_cont, placeholder: "キーワードを入力" %>
+        <div class="select-box select-1">
+            <%= f.select :prefecture_eq, Review.prefectures.keys.to_a, {include_blank: '地域指定なし'} %>
+        </div>
+        <div class="select-box select-1">
+            <%= f.select :sorts, { '投稿が新しい順': 'id desc', '投稿が古い順': 'id asc', '乾杯の多い順': 'likes_count desc' }, { selected: params[:q][:sorts] }, { onchange: 'this.form.submit()'} %>
+        </div>
+        <%= f.submit "検索" %>
+        <% end %>
     </div>
-   <% end %>
-   <% end %>
-  </div>
-
+    <p style="font-size: 22px; text-align: center; margin: 50px;">
+        <%= @reviews.count %>件の検索結果
+    </p>
+    <div class="hold">
+        <% @reviews.each do |review| %>
+        <%= link_to review_path(review.id) do %>
+        <div class="index-box">
+            <p style="font-size: 20px; padding: 15px 25px;">
+                <%= review.title.truncate(13) %>
+            </p>
+            <p style="padding-left: 25px;">
+                <%= review.prefecture %>
+            </p>
+            <p style="padding-left: 25px;">
+                <%= review.brand %>
+            </p>
+            <div style="float: right; position: absolute; right: 25px; bottom: 50px;">
+                <%= attachment_image_tag review, :image, :fill, 150, 100, format: 'jpeg' %>
+            </div>
+            <p style="padding-left: 25px; padding-top: 25px;">書いた人：
+                <%= review.user.name %>
+            </p>
+            <p style="float: right; position: absolute; bottom: 15px; right: 25px;">
+                <%= review.created_at.strftime('%Y/%m/%d %H:%M') %>
+            </p>
+        </div>
+        <% end %>
+        <% end %>
+    </div>
 </div>
-

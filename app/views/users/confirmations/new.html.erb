@@ -1,22 +1,15 @@
 <%= render 'reviews/link' %>
-
 <div class="mail contents">
-
-<h3>アカウント登録手続きメール再送信</h3>
-
-<p>以下の欄に登録したメールアドレスをご入力ください。
-   登録手続きメールをお送りします。</p>
-
-<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), placeholder: "メールアドレス" %>
-  </div><br>
-
-  <div class="action">
-    <%= f.submit "送信" %>
-  </div>
-<% end %>
-
+    <h3>アカウント登録手続きメール再送信</h3>
+    <p>以下の欄に登録したメールアドレスをご入力ください。
+        登録手続きメールをお送りします。</p>
+    <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="field">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), placeholder: "メールアドレス" %>
+    </div><br>
+    <div class="action">
+        <%= f.submit "送信" %>
+    </div>
+    <% end %>
 </div>
