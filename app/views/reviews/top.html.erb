@@ -80,10 +80,12 @@
         <p>今週人気のレビューです！</p>
       </div>
         <% @review.each do |review| %>
+
+        <%= link_to review_path(review.id) do %>
         <div class="review-box">
          <div class="inner-review-box">
 
-          <h4 class="review-title"><%= link_to review.title.truncate(10), review_path(review.id) %></h4>
+          <h4 class="review-title"><%= review.title.truncate(10) %></h4>
 
           <p style="font-size: 15px;"><%= review.prefecture %></p>
 
@@ -91,11 +93,12 @@
 
           <div class="image"><%= attachment_image_tag review, :image, :fill, 150, 100, format: 'jpeg' %></div>
 
-          <p style="font-size: 16px;">書いた人：<%= link_to review.user.name, user_path(review.user) %></p>
+          <p style="font-size: 16px;">書いた人：<%= review.user.name %></p>
 
           <p class="date"><%= review.created_at.strftime('%Y/%m/%d %H:%M') %></p>
          </div>
         </div>
+        <% end %>
         <% end %>
     </div>
     <% end %>

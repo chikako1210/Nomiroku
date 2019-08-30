@@ -4,4 +4,4 @@
    現在、会員登録手続きは完了しておりません。<br />
    下記ＵＲＬをクリックのうえ、引き続き会員登録をお願いいたします。</p>
 
-<p><%= link_to 'ユーザー登録を完了する', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p><%= link_to 'ユーザー登録を完了する', confirmation_url(@resource, confirmation_token: @token, host: 'http://ec2-52-198-191-23.ap-northeast-1.compute.amazonaws.com/' ) %></p>

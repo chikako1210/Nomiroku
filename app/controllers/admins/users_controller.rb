@@ -14,6 +14,6 @@ before_action :authenticate_admin!
   def destroy
   	  @user = User.find(params[:id])
       @user.destroy
-      redirect_to users_path
+      redirect_to admins_users_path
   end
 end

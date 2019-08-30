@@ -34,13 +34,6 @@ $(function(){
   });
 });
 
-// マウスオーバー時のレビューをふわっとさせる
-$(function(){
-    $('.review-title').mouseover(function(){
-        $('.review-box').addClass('action');
-    });
-});
-
 // トップテキストのスクロールでフェードイン表示
 $(function(){
   $('#animation').css('visibility','hidden');

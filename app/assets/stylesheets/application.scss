@@ -420,7 +420,7 @@ input[type=radio] + p {
   text-align: center;
 }
 
-.login-link a, .edit-link a {
+.login-link a {
   color: gray;
   font-size: 12px;
 }
@@ -533,4 +533,8 @@ input[type=radio] + p {
 .hold {
   width: 1100px;
   margin: 0 auto;
+}
+
+.like-link a {
+  text-decoration: none;
 }
