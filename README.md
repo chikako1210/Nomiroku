@@ -1,5 +1,5 @@
 # Nomiroku
-DMM WEBCAMPのポートフォリオ制作課題です。
+DMM WEBCAMPのポートフォリオ制作課題です。  
 「のみ録」という日本酒のレビューサイトです。
 
 ### Feature
@@ -9,11 +9,11 @@ DMM WEBCAMPのポートフォリオ制作課題です。
 -管理者機能ユーザーとレビューの管理ができます。
 
 ### Requirement
-Ruby 2.5.5
-Ruby on Rails 5.2.3
-HTML/CSS
-JavaScript
-JQuery
+Ruby 2.5.5  
+Ruby on Rails 5.2.3  
+HTML/CSS  
+JavaScript  
+JQuery  
 Node.js
 
 ### Usage
