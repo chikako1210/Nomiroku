@@ -17,6 +17,10 @@ JQuery
 Node.js
 
 ### Usage
+`git clone git@github.com:chikako1210/Nomiroku.git`
+`cd Nomiroku`
+`bundle install`
+その後サーバーを立ち上げてください
 
 
 ### Authors
