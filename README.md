@@ -17,10 +17,10 @@ JQuery
 Node.js
 
 ### Usage
-`git clone git@github.com:chikako1210/Nomiroku.git`
-`cd Nomiroku`
-`bundle install`
-アカウント登録時にメール認証(deviseによる)を設定しているので、開発環境によってactionmailerのurlを適宜変更してください。  
+`git clone git@github.com:chikako1210/Nomiroku.git`  
+`cd Nomiroku`  
+`bundle install`  
+アカウント登録時にメール認証(deviseによる)を設定しているので、開発環境によってactionmailerのurlを適宜変更してください。   
 その後サーバーを立ち上げてください。
 
 
