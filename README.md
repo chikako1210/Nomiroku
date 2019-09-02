@@ -20,7 +20,7 @@ Node.js
 `git clone git@github.com:chikako1210/Nomiroku.git`  
 `cd Nomiroku`  
 `bundle install`  
-アカウント登録時にメール認証(deviseによる)を設定しているので、開発環境によってactionmailerのURLを適宜変更してください。メールの確認は、(開発環境URL)/letter_opener で確認できます。
+アカウント登録時にメール認証(deviseによる)を設定しているので、開発環境によってactionmailerのURLを適宜変更してください。メールの確認は、開発環境URL/letter_opener で確認できます。
 
 
 ### Authors
