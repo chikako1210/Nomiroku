@@ -20,7 +20,8 @@ Node.js
 `git clone git@github.com:chikako1210/Nomiroku.git`
 `cd Nomiroku`
 `bundle install`
-その後サーバーを立ち上げてください
+アカウント登録時にメール認証(deviseによる)を設定しているので、開発環境によってactionmailerのurlを適宜変更してください。  
+その後サーバーを立ち上げてください。
 
 
 ### Authors
