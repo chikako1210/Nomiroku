@@ -17,6 +17,7 @@ JQuery
 Node.js
 
 ### Usage
+開発環境で動作確認する場合、
 `git clone git@github.com:chikako1210/Nomiroku.git`  
 `cd Nomiroku`  
 `bundle install`  
