@@ -64,7 +64,7 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 
 gem 'jcanvas-rails', '~> 0.1.0'
 
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-sass', '~> 3.4.1'
 
 group :development do #開発環境のみ
   gem 'letter_opener_web'
